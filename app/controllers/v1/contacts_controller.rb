@@ -4,4 +4,8 @@ class V1::ContactsController < ApplicationController
 
     render json: @contacts, status: :ok
   end
+
+  def create
+    @contacts = Contact.new(contact_params)
+  end
 end
