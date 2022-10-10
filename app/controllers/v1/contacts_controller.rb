@@ -12,6 +12,15 @@ class V1::ContactsController < ApplicationController
     render json: @contact, status: :created
   end
 
+  def destroy
+    @contact = Contact.where(id: params[:id]).first
+    if @contact.destroy
+      head(:ok)
+    else
+      head(:unprocessable_entity)
+    end
+  end
+
   private
 
     def contact_params
