@@ -7,6 +7,9 @@ class V1::ContactsController < ApplicationController
 
   def create
     @contacts = Contact.new(contact_params)
+
+    @contact.save
+    render json: @contact, status: :created
   end
 
   private
